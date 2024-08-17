@@ -1,0 +1,20 @@
+query whoami {
+  whoami {
+    ...CoreContactFields
+    __typename
+  }
+}
+
+fragment CoreContactFields on Contact {
+  contactCoverages {
+  type
+  title
+  primaryEmail
+  primaryMobileNumber
+  salutation
+  officeNumber
+  nameInNativeLanguage
+  fullName
+  id
+  __typename
+}
