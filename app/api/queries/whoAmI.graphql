@@ -7,14 +7,15 @@ query whoami {
 
 fragment CoreContactFields on Contact {
   contactCoverages {
-  type
-  title
-  primaryEmail
-  primaryMobileNumber
-  salutation
-  officeNumber
-  nameInNativeLanguage
-  fullName
-  id
-  __typename
+    type
+    title
+    primaryEmail
+    primaryMobileNumber
+    salutation
+    officeNumber
+    nameInNativeLanguage
+    fullName
+    id
+    __typename
+  }
 }

@@ -62,6 +62,8 @@ async function queryAuthToken(result: AuthSessionResult, codeverifier: string) {
 
   console.log(JSON.stringify(tokens, null, 2));
 
+  localStorage.setItem("token", tokens.access_token);
+
   return tokens;
 }
 

@@ -1,3 +1,15 @@
 import { GraphQLClient } from "graphql-request";
 
-const graphqlClient = new GraphQLClient("https://forums.clsa.com/api");
+export const getToken = () => {
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('token'); // This ensures localStorage is accessed only in the browser
+  }
+  return null;
+};
+
+
+export const graphqlClient = new GraphQLClient("https://forums.clsa.com/api", {
+  headers: {
+    Authorization: `Bearer ${getToken()}`,
+  },
+});

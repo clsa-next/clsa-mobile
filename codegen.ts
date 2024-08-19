@@ -1,5 +1,7 @@
 
 import type { CodegenConfig } from '@graphql-codegen/cli';
+import { graphqlClient } from './app/api/graphql';
+
 
 const config: CodegenConfig = {
   overwrite: true,
@@ -13,11 +15,14 @@ const config: CodegenConfig = {
       },
     },
   ],
-  documents: "app/**/*.tsx",
+  documents: "app/**/*.{ts,tsx,graphql}",
   generates: {
-    "app/gql": {
+    "app/gql/": {
       preset: "client",
-      plugins: []
+      plugins: ['typescript', 'typescript-operations', 'typescript-react-query'],
+      config: {
+        fetcher: graphqlClient.request.bind(graphqlClient),
+      },
     }
   }
 };
